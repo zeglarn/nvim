@@ -21,5 +21,19 @@ return {
         -- To get fzf loaded and working with telescope, you need to call
         -- load_extension, somewhere after setup function:
         require('telescope').load_extension('fzf')
+        local wk = require('which-key')
+        wk.register({
+            f = {
+                name = "find",
+                f = { "<CMD>Telescope find_files<CR>", "Find files" },
+                l = { "<CMD>Telescope live_grep<CR>", "Live grep"},
+                b = { "<CMD>Telescope buffers<CR>", "Find buffers"},
+            },
+        }, {prefix = '<leader>'})
     end,
+--    keys = {
+--        { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find files"},
+--        { "<leader>fl", "<CMD>Telescope live_grep<CR>", desc = "Live grep"},
+--        { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Find buffers"},
+--    }
 }
